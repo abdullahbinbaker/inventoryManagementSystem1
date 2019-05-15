@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{703FF8B5-27E1-459B-9EDE-D28EF6FB5459}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>shalashShop</RootNamespace>
+    <AssemblyName>shalashShop</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net45\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Export, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.1.UI, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v17.1.Extensions, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SearchForCustomersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchForCustomersForm.Designer.cs">
+      <DependentUpon>SearchForCustomersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchForSuppliersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchForSuppliersForm.Designer.cs">
+      <DependentUpon>SearchForSuppliersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BadeelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BadeelForm.Designer.cs">
+      <DependentUpon>BadeelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeBillTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeBillTypeForm.Designer.cs">
+      <DependentUpon>ChangeBillTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddingSupplierInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddingSupplierInformationForm.Designer.cs">
+      <DependentUpon>AddingSupplierInformationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevFrmPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevFrmPrint.Designer.cs">
+      <DependentUpon>DevFrmPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddingExpensesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddingExpensesForm.Designer.cs">
+      <DependentUpon>AddingExpensesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExpensesReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpensesReportForm.Designer.cs">
+      <DependentUpon>ExpensesReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnqueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnqueryForm.Designer.cs">
+      <DependentUpon>EnqueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrint.Designer.cs">
+      <DependentUpon>frmPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertDataFromExcelSheetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertDataFromExcelSheetForm.Designer.cs">
+      <DependentUpon>InsertDataFromExcelSheetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InvoiceReport.Designer.cs">
+      <DependentUpon>InvoiceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="itemInItemReportForm.cs" />
+    <Compile Include="itemInSalesBill.cs" />
+    <Compile Include="ItemReportPrintFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemReportPrintFrame.Designer.cs">
+      <DependentUpon>ItemReportPrintFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemReportsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemReportsForm.Designer.cs">
+      <DependentUpon>ItemReportsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsSearchPageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemsSearchPageForm.Designer.cs">
+      <DependentUpon>ItemsSearchPageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JardPage1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JardPage1.Designer.cs">
+      <DependentUpon>JardPage1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JardPage2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JardPage2.Designer.cs">
+      <DependentUpon>JardPage2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalculatingTheProfitsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalculatingTheProfitsForm.Designer.cs">
+      <DependentUpon>CalculatingTheProfitsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseBillPrintFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchaseBillPrintFrame.Designer.cs">
+      <DependentUpon>PurchaseBillPrintFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseBillReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PurchaseBillReport.Designer.cs">
+      <DependentUpon>PurchaseBillReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseReportReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PurchaseReportReport.Designer.cs">
+      <DependentUpon>PurchaseReportReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseReturnReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PurchaseReturnReport.Designer.cs">
+      <DependentUpon>PurchaseReturnReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="purchasesBillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="purchasesBillForm.Designer.cs">
+      <DependentUpon>purchasesBillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasesReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchasesReportForm.Designer.cs">
+      <DependentUpon>PurchasesReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="purchasesReturnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="purchasesReturnForm.Designer.cs">
+      <DependentUpon>purchasesReturnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="salesBillPrintFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="salesBillPrintFrame.Designer.cs">
+      <DependentUpon>salesBillPrintFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesReturnReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SalesReturnReport.Designer.cs">
+      <DependentUpon>SalesReturnReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="salesBillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="salesBillForm.Designer.cs">
+      <DependentUpon>salesBillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="salesReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="salesReportForm.Designer.cs">
+      <DependentUpon>salesReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesReportReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SalesReportReport.Designer.cs">
+      <DependentUpon>SalesReportReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sellingReturnsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sellingReturnsForm.Designer.cs">
+      <DependentUpon>sellingReturnsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="suppliersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="suppliersForm.Designer.cs">
+      <DependentUpon>suppliersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="theMainPageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="theMainPageForm.Designer.cs">
+      <DependentUpon>theMainPageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updateAndSearchForExpensesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateAndSearchForExpensesForm.Designer.cs">
+      <DependentUpon>updateAndSearchForExpensesForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="SearchForCustomersForm.resx">
+      <DependentUpon>SearchForCustomersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchForSuppliersForm.resx">
+      <DependentUpon>SearchForSuppliersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BadeelForm.resx">
+      <DependentUpon>BadeelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeBillTypeForm.resx">
+      <DependentUpon>ChangeBillTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddingSupplierInformationForm.resx">
+      <DependentUpon>AddingSupplierInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevFrmPrint.resx">
+      <DependentUpon>DevFrmPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddingExpensesForm.resx">
+      <DependentUpon>AddingExpensesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpensesReportForm.resx">
+      <DependentUpon>ExpensesReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnqueryForm.resx">
+      <DependentUpon>EnqueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrint.resx">
+      <DependentUpon>frmPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertDataFromExcelSheetForm.resx">
+      <DependentUpon>InsertDataFromExcelSheetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InvoiceReport.resx">
+      <DependentUpon>InvoiceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemReportPrintFrame.resx">
+      <DependentUpon>ItemReportPrintFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemReportPrintReport.rdlc" />
+    <EmbeddedResource Include="ItemReportsForm.resx">
+      <DependentUpon>ItemReportsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemsSearchPageForm.resx">
+      <DependentUpon>ItemsSearchPageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JardPage1.resx">
+      <DependentUpon>JardPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JardPage2.resx">
+      <DependentUpon>JardPage2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalculatingTheProfitsForm.resx">
+      <DependentUpon>CalculatingTheProfitsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="PurchaseBillPrintFrame.resx">
+      <DependentUpon>PurchaseBillPrintFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="purchaseBillPrintReport.rdlc" />
+    <EmbeddedResource Include="PurchaseBillReport.resx">
+      <DependentUpon>PurchaseBillReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchaseReportReport.resx">
+      <DependentUpon>PurchaseReportReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchaseReturnReport.resx">
+      <DependentUpon>PurchaseReturnReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="purchasesBillForm.resx">
+      <DependentUpon>purchasesBillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchasesReportForm.resx">
+      <DependentUpon>PurchasesReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="purchasesReturnForm.resx">
+      <DependentUpon>purchasesReturnForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="salesBillForm.resx">
+      <DependentUpon>salesBillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="salesBillPrintFrame.resx">
+      <DependentUpon>salesBillPrintFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesBillPrintReport.rdlc" />
+    <EmbeddedResource Include="salesBillR.rdlc" />
+    <EmbeddedResource Include="salesReportForm.resx">
+      <DependentUpon>salesReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesReportReport.resx">
+      <DependentUpon>SalesReportReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesReturnReport.resx">
+      <DependentUpon>SalesReturnReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellingReturnsForm.resx">
+      <DependentUpon>sellingReturnsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="suppliersForm.resx">
+      <DependentUpon>suppliersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="theMainPageForm.resx">
+      <DependentUpon>theMainPageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateAndSearchForExpensesForm.resx">
+      <DependentUpon>updateAndSearchForExpensesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\itemInItemReportForm.datasource" />
+    <None Include="Properties\DataSources\itemInPurchaseBill.datasource" />
+    <None Include="Properties\DataSources\itemInSalesBill.datasource" />
+    <None Include="Properties\DataSources\ItemReports.datasource" />
+    <None Include="Properties\DataSources\salesBill.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
