@@ -10,12 +10,12 @@ namespace Core.Entity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public int SspllierId { get; set; }
+        public int SupllierId { get; set; }
         public string SupplierName { get; set; }
         public string SsupplierPhoneNumber { get; set; }
         public string SupplierAddress { get; set; }
         public string SupplierEmail { get; set; }
-        public double SupplierTotalPurchases { get; set; }
+        public double? SupplierTotalPurchases { get; set; }
 
     }
 }
