@@ -4,14 +4,16 @@ using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210120100014_InitialMigration4")]
+    partial class InitialMigration4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,75 +21,11 @@ namespace Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Core.Entity.ConTableCustomerAndBill", b =>
-                {
-                    b.Property<int>("CustomerId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BillNo")
-                        .HasColumnType("int");
-
-                    b.Property<double?>("Discount")
-                        .HasColumnType("float");
-
-                    b.Property<int?>("SupplierId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("TotalBillAfterDiscount")
-                        .HasColumnType("float");
-
-                    b.Property<double>("TotalBillBeforeDiscount")
-                        .HasColumnType("float");
-
-                    b.HasKey("CustomerId");
-
-                    b.HasIndex("SupplierId");
-
-                    b.ToTable("ConTableCustomerAndBill");
-                });
-
-            modelBuilder.Entity("Core.Entity.ConTableItemAndBill", b =>
-                {
-                    b.Property<int>("BillNo")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ItemNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ItemNo1")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<double>("ItemPriceInTheBill")
-                        .HasColumnType("float");
-
-                    b.Property<double>("ItemProfitInTheBill")
-                        .HasColumnType("float");
-
-                    b.Property<int>("ItemQuantityInTheBill")
-                        .HasColumnType("int");
-
-                    b.Property<double>("ItemTotalPriceInTheBill")
-                        .HasColumnType("float");
-
-                    b.HasKey("BillNo");
-
-                    b.HasIndex("ItemNo1");
-
-                    b.ToTable("ConTableItemAndBills");
-                });
-
             modelBuilder.Entity("Core.Entity.ConTableItemAndPurchaseBill", b =>
                 {
                     b.Property<string>("ItemNo")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("BillNo")
-                        .HasColumnType("int");
 
                     b.Property<double>("ItemPriceInTheBill")
                         .HasColumnType("float");
@@ -101,39 +39,14 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("dateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("purchaseBillBillNo")
+                        .HasColumnType("int");
+
                     b.HasKey("ItemNo");
 
-                    b.HasIndex("BillNo");
+                    b.HasIndex("purchaseBillBillNo");
 
                     b.ToTable("ConTableItemAndPurchaseBill");
-                });
-
-            modelBuilder.Entity("Core.Entity.Customer", b =>
-                {
-                    b.Property<int>("CustomerId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CustomerAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CustomerEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CustomerName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CustomerPhone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("CustomerTotalPurchases")
-                        .HasColumnType("float");
-
-                    b.HasKey("CustomerId");
-
-                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("Core.Entity.Item", b =>
@@ -188,7 +101,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("ItemNo");
 
-                    b.ToTable("Items");
+                    b.ToTable("Item");
                 });
 
             modelBuilder.Entity("Core.Entity.ItemCostHistory", b =>
@@ -224,7 +137,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("ItemCostHistories");
+                    b.ToTable("ItemCostHistory");
                 });
 
             modelBuilder.Entity("Core.Entity.PurchaseBill", b =>
@@ -241,71 +154,28 @@ namespace Infrastructure.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("BillType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("Discount")
+                    b.Property<double>("Discount")
                         .HasColumnType("float");
 
                     b.Property<string>("OriginalPurchaseBillNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SupplierId")
-                        .HasColumnType("int");
-
                     b.Property<string>("SupplierName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("SupplierSupllierId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("dateTime")
                         .HasColumnType("datetime2");
 
                     b.HasKey("BillNo");
 
-                    b.HasIndex("SupplierId");
+                    b.HasIndex("SupplierSupllierId");
 
-                    b.ToTable("PurchaseBills");
-                });
-
-            modelBuilder.Entity("Core.Entity.SalesBill", b =>
-                {
-                    b.Property<int>("BillNo")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<double>("BillProfitAfterDiscount")
-                        .HasColumnType("float");
-
-                    b.Property<double>("BillProfitBeforeDiscount")
-                        .HasColumnType("float");
-
-                    b.Property<string>("BillType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("CustomerId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CustomerName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double?>("Discount")
-                        .HasColumnType("float");
-
-                    b.Property<double>("SalesBillTotalBeforeDiscount")
-                        .HasColumnType("float");
-
-                    b.Property<double>("SalesBillTotalPriceAfterDiscount")
-                        .HasColumnType("float");
-
-                    b.Property<string>("SalesmanName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("BillNo");
-
-                    b.ToTable("SalesBills");
+                    b.ToTable("PurchaseBill");
                 });
 
             modelBuilder.Entity("Core.Entity.Supplier", b =>
@@ -332,39 +202,21 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("SupllierId");
 
-                    b.ToTable("Suppliers");
-                });
-
-            modelBuilder.Entity("Core.Entity.ConTableCustomerAndBill", b =>
-                {
-                    b.HasOne("Core.Entity.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("SupplierId");
-                });
-
-            modelBuilder.Entity("Core.Entity.ConTableItemAndBill", b =>
-                {
-                    b.HasOne("Core.Entity.Item", "Item")
-                        .WithMany()
-                        .HasForeignKey("ItemNo1");
+                    b.ToTable("Supplier");
                 });
 
             modelBuilder.Entity("Core.Entity.ConTableItemAndPurchaseBill", b =>
                 {
                     b.HasOne("Core.Entity.PurchaseBill", "purchaseBill")
                         .WithMany()
-                        .HasForeignKey("BillNo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("purchaseBillBillNo");
                 });
 
             modelBuilder.Entity("Core.Entity.PurchaseBill", b =>
                 {
                     b.HasOne("Core.Entity.Supplier", "Supplier")
                         .WithMany()
-                        .HasForeignKey("SupplierId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SupplierSupllierId");
                 });
 #pragma warning restore 612, 618
         }

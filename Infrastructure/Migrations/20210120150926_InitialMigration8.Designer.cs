@@ -4,14 +4,16 @@ using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210120150926_InitialMigration8")]
+    partial class InitialMigration8
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,38 +48,6 @@ namespace Infrastructure.Migrations
                     b.HasIndex("SupplierId");
 
                     b.ToTable("ConTableCustomerAndBill");
-                });
-
-            modelBuilder.Entity("Core.Entity.ConTableItemAndBill", b =>
-                {
-                    b.Property<int>("BillNo")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ItemNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ItemNo1")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<double>("ItemPriceInTheBill")
-                        .HasColumnType("float");
-
-                    b.Property<double>("ItemProfitInTheBill")
-                        .HasColumnType("float");
-
-                    b.Property<int>("ItemQuantityInTheBill")
-                        .HasColumnType("int");
-
-                    b.Property<double>("ItemTotalPriceInTheBill")
-                        .HasColumnType("float");
-
-                    b.HasKey("BillNo");
-
-                    b.HasIndex("ItemNo1");
-
-                    b.ToTable("ConTableItemAndBills");
                 });
 
             modelBuilder.Entity("Core.Entity.ConTableItemAndPurchaseBill", b =>
@@ -340,13 +310,6 @@ namespace Infrastructure.Migrations
                     b.HasOne("Core.Entity.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("SupplierId");
-                });
-
-            modelBuilder.Entity("Core.Entity.ConTableItemAndBill", b =>
-                {
-                    b.HasOne("Core.Entity.Item", "Item")
-                        .WithMany()
-                        .HasForeignKey("ItemNo1");
                 });
 
             modelBuilder.Entity("Core.Entity.ConTableItemAndPurchaseBill", b =>

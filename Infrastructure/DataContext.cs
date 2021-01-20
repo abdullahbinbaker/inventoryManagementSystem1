@@ -14,9 +14,16 @@ namespace Infrastructure
 
         }
 
-        public DbSet<Item> Item { get; set; }
-        public DbSet<ItemCostHistory> ItemCostHistory { get; set; }
-        public DbSet<Supplier> Supplier { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<ItemCostHistory> ItemCostHistories { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<PurchaseBill> PurchaseBills { get; set; }
+        public DbSet<ConTableItemAndPurchaseBill> ConTableItemAndPurchaseBill { get; set; }
+        public DbSet<ConTableCustomerAndBill> ConTableCustomerAndBill { get; set; }
+        public DbSet<SalesBill> SalesBills { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<ConTableItemAndBill> ConTableItemAndBills { get; set; }
+
 
         //public DbSet<RefreshToken> RefreshTokens { get; set; }
 
