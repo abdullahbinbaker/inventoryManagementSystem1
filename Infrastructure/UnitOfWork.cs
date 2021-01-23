@@ -1,8 +1,11 @@
 ﻿using Core.Interfaces;
+using Infrastructure.Repository;
+using Microsoft.EntityFrameworkCore;
 //using Infrastructure.Repository;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Infrastructure
 {
@@ -10,26 +13,34 @@ namespace Infrastructure
     {
 
         private readonly DataContext _context;
+        public ConTableCustomerAndBillRepository ConTableCustomerAndBill;
+        public ConTableItemAndBillRepository ConTableItemAndBill;
+        public ConTableItemAndPurchaseBillRepository ConTableItemAndPurchaseBill;
+        public CustomerRepository Customer;
+        public ItemCostHistoryRepository ItemCostHistory;
+        public ItemRepository Item;
+        public PurchaseBillRepository PurchaseBill;
+        public SalesBillRepository SalesBill;
+        public SupplierRepository Supplier;
 
-        //public UnitOfWork(DataContext context)
-        //{
-        //    _context = context;
-        //    Employees = new EmployeeRepository(_context);
-        //    Logins = new LoginRepository(_context);
-        //    Holidays = new HolidayRepository(_context);
-        //    RefreshTokens = new RefreshTokenRepository(_context);
-        //}
-
-        //public EmployeeRepository Employees { get; private set; }
-
-        //public LoginRepository Logins { get; private set; }
-
-        //public HolidayRepository Holidays { get; private set; }
-
-        //public RefreshTokenRepository RefreshTokens { get; private set; }
-        public void Save()
+        public UnitOfWork(DataContext context)
         {
-            _context.SaveChanges();
+            _context = context;
+            ConTableCustomerAndBill = new ConTableCustomerAndBillRepository(_context);
+            ConTableItemAndBill = new ConTableItemAndBillRepository(_context);
+            ConTableItemAndPurchaseBill = new ConTableItemAndPurchaseBillRepository(_context);
+            Customer = new CustomerRepository(_context);
+            ItemCostHistory = new ItemCostHistoryRepository(_context);
+            Item = new ItemRepository(_context);
+            PurchaseBill = new PurchaseBillRepository(_context);
+            SalesBill = new SalesBillRepository(_context);
+            Supplier = new SupplierRepository(_context);
+        }
+
+       
+        public async Task<bool> SaveAsync()
+        {
+            return await _context.SaveChangesAsync()>0;
         }
     }
 }
